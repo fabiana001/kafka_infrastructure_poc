@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+    mysql:
+      image: mysql:5.7
+      hostname: quickstart-mysql
+      container_name: quickstart-mysql
+      ports:
+       - 3306:3306
+      environment:
+        - MYSQL_DATABASE=connect_test
+        - MYSQL_ROOT_PASSWORD=confluent
+        - MYSQL_USER=confluent
+        - MYSQL_PASSWORD=confluent
+      volumes:
+        - ${PWD}/setup.sql:/dbscript/setup.sql:ro  
+      networks:
+       - kafka_network
+networks:
+  kafka_network:
+    external: true
+    name: kafka_network
