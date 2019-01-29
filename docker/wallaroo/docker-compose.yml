@@ -1,18 +1,18 @@
 version: '3.5'
 services:
   #Setup the Metrics UI so we can watch our application performance
-  wallaroo_metrics_ui:
-    image: wallaroo-labs-docker-wallaroolabs.bintray.io/release/metrics_ui
-    hostname: wallaroo_metrics_ui
-    container_name: wallaroo_metrics_ui
-    networks:
-      - kafka_network
-    ports:
+  #wallaroo_metrics_ui:
+    #image: wallaroo-labs-docker-wallaroolabs.bintray.io/release/metrics_ui
+    #hostname: wallaroo_metrics_ui
+    #container_name: wallaroo_metrics_ui
+    #networks:
+    #  - kafka_network
+    #ports:
       # The web UI
-      - "4000:4000"
+    #  - "4000:4000"
       # Metrics collection port
-      - "5001:5001"
-  kafka_producer:
+    #  - "5001:5001"
+  wallaroo_kafka_producer:
     image: wallaroo-labs-docker-wallaroolabs.bintray.io/release/wallaroo
     build:
       context: https://github.com/WallarooLabs/wallaroo.git
@@ -27,8 +27,8 @@ services:
     networks:
       - kafka_network
     tty: true
-    command: "pip install /src/code/requirements.txt && python /src/code/generator.py"
-
+    #command: "pip install -r /src/code/requirements.txt"
+    # && python /src/code/generator.py"
 networks:
   kafka_network:
     external: true
