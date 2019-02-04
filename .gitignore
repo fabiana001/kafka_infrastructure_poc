@@ -1,3 +1,4 @@
 python-virtualenv-machida3
 wallaroo-src
 ENV
+src/avro/

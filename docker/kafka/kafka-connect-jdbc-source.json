@@ -16,7 +16,7 @@
 
 
                 "_comment": " --- JDBC-specific configuration below here  --- ",
-                "_comment": "JDBC connection URL. *test* is the db name",
+                "_comment": "JDBC connection URL. *connect_test* is the db name",
                 "connection.url": "jdbc:mysql://localhost:3306/connect_test?user=confluent&password=confluent",
 
                 "_comment": "Which table(s) to include",

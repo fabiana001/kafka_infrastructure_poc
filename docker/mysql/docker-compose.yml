@@ -12,7 +12,8 @@ services:
         - MYSQL_USER=confluent
         - MYSQL_PASSWORD=confluent
       volumes:
-        - ${PWD}/setup.sql:/dbscript/setup.sql:ro  
+        - ${PWD}/setup.sql:/dbscript/setup.sql:ro
+        - ${PWD}/dump_2019_01_15.sql:/dbscript/dump_2019_01_15.sql:ro
       networks:
        - kafka_network
 networks:
