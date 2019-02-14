@@ -12,8 +12,18 @@ services:
         - MYSQL_USER=confluent
         - MYSQL_PASSWORD=confluent
       volumes:
-        - ${PWD}/setup.sql:/dbscript/setup.sql:ro
         - ${PWD}/dump_2019_01_15.sql:/dbscript/dump_2019_01_15.sql:ro
+      networks:
+       - kafka_network
+    elasticsearch:
+      image: elastic/elasticsearch:6.6.0
+      hostname: elasticsearch
+      container_name: elasticsearch
+      ports:
+        - 9200:9200
+        - 9300:9300
+      environment:
+        - "discovery.type=single-node"
       networks:
        - kafka_network
 networks:

@@ -13,6 +13,11 @@ docker-compose exec kafka kafka-topics --create --topic docker-connect-offsets -
 printf "\nCreate mysql connector\n\t"
 res=$(curl -X POST -H "Content-Type: application/json" --data @quickstart-jdbc-source.json http://localhost:8083/connectors)
 echo $res
+sleep 10
+#printf "\nCreate elastic connector\n\t"
+#res=$(curl -X POST -H "Content-Type: application/json" --data @quickstart-elastic-sink.json http://localhost:8083/connectors)
+#echo $res
+
 
 # Setup mysql database
 printf "\nCreate table PRO_clip_repository and populate it with few news\n\t"

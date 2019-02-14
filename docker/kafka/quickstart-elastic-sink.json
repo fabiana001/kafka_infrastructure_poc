@@ -1,0 +1,12 @@
+{
+  "name": "quickstart-elasticsearch-sink",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "tasks.max": "1",
+    "topics": "genero_news",
+    "key.ignore": "true",
+    "connection.url": "http://elasticsearch:9200",
+    "type.name": "kafka-connect",
+    "name": "elasticsearch-sink"
+  }
+}
