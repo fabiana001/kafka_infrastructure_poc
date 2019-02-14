@@ -19,7 +19,7 @@ chmod +x ./setup.sh
 sleep 10
 # Check status db connector
 printf "\nCheck status of mysql connector\n\t"
-res=$(curl http://localhost:8083/connectors/quickstart-jdbc-source/status)
+res=$(curl http://localhost:8083/connectors/quickstart-timestamp-jdbc-source/status)
 echo $res
 #printf "\nCheck status of elastic connector\n\t"
 #res=$(curl http://localhost:8083/connectors/quickstart-elasticsearch-sink/status)
