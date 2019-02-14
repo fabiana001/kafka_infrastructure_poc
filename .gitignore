@@ -1,4 +1,3 @@
-python-virtualenv-machida3
-wallaroo-src
-ENV
-src/avro/
+__pycache__
+.idea
+.DS_Store

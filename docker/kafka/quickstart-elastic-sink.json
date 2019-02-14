@@ -7,6 +7,6 @@
     "key.ignore": "true",
     "connection.url": "http://elasticsearch:9200",
     "type.name": "kafka-connect",
-    "name": "elasticsearch-sink"
+    "name": "quickstart-elasticsearch-sink"
   }
 }

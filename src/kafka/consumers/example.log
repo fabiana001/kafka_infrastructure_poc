@@ -1,0 +1,25 @@
+2019-02-14 15:44:48,345 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:44:48,345 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:46:56,494 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:46:56,494 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:47:00,542 [MainThread  ] [INFO ]  ####
+2019-02-14 15:48:12,892 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:48:12,892 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:48:15,932 [MainThread  ] [INFO ]  ####
+2019-02-14 15:48:55,540 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:48:55,540 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:48:59,573 [MainThread  ] [INFO ]  ####
+2019-02-14 15:48:59,574 [MainThread  ] [INFO ]  [NewsAnalyzer] partition:quickstart-jdbc-PRO_clip_repository, offset:0, traceback:Traceback (most recent call last):
+  File "/Users/lanottef/PycharmProjects/genero_infrastructure_poc/kafka/consumers/news_analyzer.py", line 68, in run
+    dict_loc = self.model.validate_loc(text)
+AttributeError: 'NewsAnalyzer' object has no attribute 'model'
+,  
+2019-02-14 15:49:58,033 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:50:13,951 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:50:20,051 [MainThread  ] [INFO ]  [BaseConsumer] End of partition reached quickstart-jdbc-PRO_clip_repository/0
+2019-02-14 15:50:57,713 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 15:51:14,189 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 15:51:20,297 [MainThread  ] [INFO ]  [BaseConsumer] End of partition reached quickstart-jdbc-PRO_clip_repository/0
+2019-02-14 16:13:38,544 [MainThread  ] [INFO ]  Initializing model
+2019-02-14 16:13:53,768 [MainThread  ] [INFO ]  Model initialized
+2019-02-14 16:13:58,897 [MainThread  ] [INFO ]  [BaseConsumer] End of partition reached quickstart-jdbc-PRO_clip_repository/0

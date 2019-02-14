@@ -1,5 +1,4 @@
-# Genero Stack Docker Compose
-This project runs an example of a simple news pipeline. Data are initially stored on mysql and after the pipeline enriched data are store on ElasticSearch.
+# Genero Infrastructure
 
 ## Stack version
 - Python 3
@@ -14,32 +13,28 @@ This project runs an example of a simple news pipeline. Data are initially store
 - Zoonavigator: 0.5.1
 - Mysql: 5.7
 
-## Run all services
-The following script run all required docker containers.
+## Genero Workflow
 
+The following figure show the workflow of Genero Infrastructure.
+
+[!][]
+1. Data is initially stored in a mysql database and daily updated;
+2. Each time new data is inserted or updated in the database, the Kafka Connect component polls it on a Kafka queue (on topic **). We set as polling strategy *timestamp* on the dataset attribute *insertdate* (for more information see [here](https://docs.confluent.io/current/connect/kafka-connect-jdbc/source-connector/source_config_options.html)).
+3. The Genero component enriches input data with other information and sends it on another Kafka queue (on topic *news_genero*);
+4. Finally the Kafka Connect component sends data having topic *news_genero* in the Elastic database.
+
+## Run Genero with Docker
+
+The following commands run dockers with a mysql server with 200 data record, an ElasticSearch server, Kafka and Kafka connector
 ```bash
-> chmod +x launch_demo.sh
-> ./launch_demo.sh
+> $ cd ./genero_infrastructure_poc/docker
+> $ chmod +x launch_demo.sh
+> $ ./launch_demo.sh
 ```
-Moreover it create a Kafka MYSQL connector which put data from Mysql to Kafka. Configurations are defined in the file _./docker/kafka/quickstart-jdbc-source.json_.
-
-
-## Load news
-### Dump few news from a remote database
-``` bash
-> mysqldump --single-transaction --column-statistics=0 --user=$user --password=$password --host=$mysql_hostname $mysql_database --tables $mysql_table --where="language IN ('IT', 'it-IT') and pubDate = '2019-01-15';" > dump_2019_01_15.sql
-```
-
-### Load news on the local mysql instance
-
+For running the Genero component:
 ```bash
-> docker exec quickstart-mysql sh -c "mysql -uconfluent -pconfluent connect_test < /dbscript/dump_2019_01_15.sql"
+> cd ./genero_infrastructure_poc/src
+> python -m ./consumers/news_analyzer
 ```
 
-## Show news
-```bash
-> docker exec schema-registry kafka-avro-console-consumer --bootstrap-server kafka:9092 --topic quickstart-jdbc-PRO_clip_repository --from-beginning --max-messages 10
-```
-
-## Refereneces
-[1][kafka-stack-docker-compos](https://github.com/simplesteph/kafka-stack-docker-compose)
+## Genero Interfaces

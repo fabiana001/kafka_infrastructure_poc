@@ -1,0 +1,10 @@
+{"namespace": "example.wallaroolabs",
+ "type": "record",
+ "name": "SensorReading",
+ "fields": [
+   {"name": "id", "type": "string"},
+   {"name": "lat",  "type": "float"},
+   {"name": "lon", "type": "float"},
+   {"name": "val", "type": "int"}
+ ]
+}
