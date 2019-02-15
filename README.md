@@ -1,5 +1,5 @@
 
-# Genero Infrastructure
+# News Stream Infrastructure
 
 ## Stack version
 - Python 3
@@ -14,7 +14,7 @@
 - Zoonavigator: 0.5.1
 - Mysql: 5.7
 
-## Genero Workflow
+## News Stream Workflow
 
 The following figure show the workflow of Genero Infrastructure.
 
