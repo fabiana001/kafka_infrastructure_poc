@@ -10,7 +10,7 @@
 - Kafka Rest Proxy: Confluent 5.1.0
 - [Kafka Topics UI: 0.9.4](https://github.com/Landoop/kafka-topics-ui)
 - Kafka Connect: Confluent 5.1.0
-- Kafka Connect UI: 0.9.4
+- [Kafka Connect UI: 0.9.4](https://github.com/Landoop/kafka-connect-ui)
 - Zoonavigator: 0.5.1
 - Mysql: 5.7
 
@@ -30,9 +30,9 @@ Data is initially stored in a mysql database and daily updated. Each time new da
 
 The following commands run dockers with a mysql server with 200 data record, an ElasticSearch server, Kafka and Kafka connector
 ```bash
-> $ cd ./genero_infrastructure_poc/docker
-> $ chmod +x launch_demo.sh
-> $ ./launch_demo.sh
+> cd ./genero_infrastructure_poc/docker
+> chmod +x launch_demo.sh
+> ./launch_demo.sh
 ```
 For running the Genero component:
 ```bash
@@ -48,8 +48,22 @@ It allows user to :
 	- find topics and their metadata;
 	- browse kafka messages and download them.
 
+Web UI will be available at [localhost:8001](http://localhost:8001)
 ![](https://github.com/fabiana001/kafka_infrastructure_poc/blob/master/imgs/topic_ui.png)
+
 
 ### Kafka Schema Registry UI
 It allow user to create, view, search and update  **Avro**  schemas of the Kafka cluster.
+
+Web UI will be available at [localhost:8000](http://localhost:8000)
+
 ![](https://github.com/fabiana001/kafka_infrastructure_poc/blob/master/imgs/schema_registry_ui.png)
+
+
+### Kafka Connect UI
+
+This is a web tool for Kafka Connect for setting up and managing connectors for multiple connect clusters.
+
+Web UI will be available at [localhost:8002](http://localhost:8002)
+
+![](https://github.com/fabiana001/kafka_infrastructure_poc/blob/master/imgs/connect_ui.png)
