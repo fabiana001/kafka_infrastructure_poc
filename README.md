@@ -17,7 +17,7 @@
 
 The following figure show the workflow of Genero Infrastructure.
 
-[!][]
+![](https://github.com/fabiana001/wallaroo_kafka_example/blob/master/imgs/genero_workflow.png)
 1. Data is initially stored in a mysql database and daily updated;
 2. Each time new data is inserted or updated in the database, the Kafka Connect component polls it on a Kafka queue (on topic **). We set as polling strategy *timestamp* on the dataset attribute *insertdate* (for more information see [here](https://docs.confluent.io/current/connect/kafka-connect-jdbc/source-connector/source_config_options.html)).
 3. The Genero component enriches input data with other information and sends it on another Kafka queue (on topic *news_genero*);
