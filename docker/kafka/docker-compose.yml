@@ -148,12 +148,25 @@ services:
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
       CONNECT_OFFSET_FLUSH_INTERVAL_MS: 10000
       CONNECT_PLUGIN_PATH: "/usr/share/java, /etc/kafka-connect/jars"
-      #CLASSPATH: /usr/share/java/kafka-connect-jdbc/mysql-connector-java-8.0.14.jar
     volumes:
       - ${PWD}/jars:/etc/kafka-connect/jars
     healthcheck:
       test: ["CMD", "nc", "127.0.0.1", "8083"]
       start_period: 30s
+  connect-ui:
+    image: landoop/kafka-connect-ui:0.9.4
+    hostname: connect-ui
+    container_name: connect-ui
+    networks:
+      - kafka_network
+    depends_on:
+      - connect
+    ports:
+      - "8002:8000"
+    environment:
+      CONNECT_URL: "http://connect:8083"
+
+
 networks:
   kafka_network:
     external: false
