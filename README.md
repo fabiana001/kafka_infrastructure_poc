@@ -1,3 +1,4 @@
+
 # Genero Infrastructure
 
 ## Stack version
@@ -18,9 +19,11 @@
 The following figure show the workflow of Genero Infrastructure.
 
 ![](https://github.com/fabiana001/wallaroo_kafka_example/blob/master/imgs/genero_workflow.png)
-1. Data is initially stored in a mysql database and daily updated;
-2. Each time new data is inserted or updated in the database, the Kafka Connect component polls it on a Kafka queue (on topic **). We set as polling strategy *timestamp* on the dataset attribute *insertdate* (for more information see [here](https://docs.confluent.io/current/connect/kafka-connect-jdbc/source-connector/source_config_options.html)).
-3. The Genero component enriches input data with other information and sends it on another Kafka queue (on topic *news_genero*);
+
+Data is initially stored in a mysql database and daily updated. Each time new data is inserted or updated in the mysql database:
+1.  the Kafka Connect component polls it on a Kafka queue (on topic *quickstart-jdbc-PRO_clip_repository*). We set as polling strategy *timestamp* on the dataset attribute *insertdate* (for more information see [here](https://docs.confluent.io/current/connect/kafka-connect-jdbc/source-connector/source_config_options.html)).
+2.  The Genero component enriches the input message with other information
+3.  The enriched message is sent to a kafka (on topic *news_genero*);
 4. Finally the Kafka Connect component sends data having topic *news_genero* in the Elastic database.
 
 ## Run Genero with Docker
@@ -38,3 +41,15 @@ For running the Genero component:
 ```
 
 ## Genero Interfaces
+
+### Kafka Topics UI
+It allows user to :
+	- browse Kafka topics and understand what's happening on the cluster;
+	- find topics and their metadata;
+	- browse kafka messages and download them.
+
+![](https://github.com/fabiana001/kafka_infrastructure_poc/blob/master/imgs/topic_ui.png)
+
+### Kafka Schema Registry UI
+It allow user to create, view, search and update  **Avro**  schemas of the Kafka cluster.
+![](https://github.com/fabiana001/kafka_infrastructure_poc/blob/master/imgs/schema_registry_ui.png)
