@@ -1,9 +1,11 @@
-from kafka.consumers.base_consumer import BaseConsumer
-from kafka.consumers.base_producer import BaseProducer
-import nerdalidator.nerdalidator as nd
+
 import logging
 import traceback
 import time
+
+from base_consumer import BaseConsumer
+from base_producer import BaseProducer
+
 
 class NewsAnalyzer(object):
 
@@ -27,7 +29,7 @@ class NewsAnalyzer(object):
         self.logger = logging.getLogger(__name__)
 
         self.logger.info("Initializing model")
-        self.model = nd.NERTagger(lang=language_model)
+        #self.model = nd.NERTagger(lang=language_model)
         self.logger.info("Model initialized")
         self.bootsrap_servers = bootsrap_servers
         self.schema_registry = schema_registry
@@ -50,6 +52,7 @@ class NewsAnalyzer(object):
         return new_dict
 
     def run(self):
+
         with BaseConsumer(self.bootsrap_servers,
                           self.schema_registry,
                           self.mysql_topic_subscribe) as cons, \
@@ -79,5 +82,5 @@ class NewsAnalyzer(object):
 
 
 if __name__ == '__main__':
-    news_analyzer = NewsAnalyzer(es_avro_schema_path="../avro/es_news.avsc", es_topic_subscribe="genero_news")
+    news_analyzer = NewsAnalyzer(es_avro_schema_path="./avro/es_news.avsc", es_topic_subscribe="genero_news")
     news_analyzer.run()

@@ -23,3 +23,7 @@ AttributeError: 'NewsAnalyzer' object has no attribute 'model'
 2019-02-14 16:13:38,544 [MainThread  ] [INFO ]  Initializing model
 2019-02-14 16:13:53,768 [MainThread  ] [INFO ]  Model initialized
 2019-02-14 16:13:58,897 [MainThread  ] [INFO ]  [BaseConsumer] End of partition reached quickstart-jdbc-PRO_clip_repository/0
+2019-03-15 10:07:11,318 [MainThread  ] [INFO ]  Initializing model
+2019-03-15 10:07:11,318 [MainThread  ] [INFO ]  Model initialized
+2019-03-15 10:07:31,122 [MainThread  ] [INFO ]  Initializing model
+2019-03-15 10:07:31,122 [MainThread  ] [INFO ]  Model initialized
