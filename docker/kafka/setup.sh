@@ -9,6 +9,7 @@ docker-compose exec kafka kafka-topics --create --topic docker-connect-offsets -
 # show topic list
 #docker-compose exec kafka kafka-topics --list --zookeeper zookeeper:2181
 
+sleep 180
 # Register mysql connector
 printf "\nCreate mysql connector\n\t"
 res=$(curl -X POST -H "Content-Type: application/json" --data @quickstart-timestamp-jdbc-source.json http://localhost:8083/connectors)

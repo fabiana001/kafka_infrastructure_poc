@@ -15,6 +15,10 @@ services:
         - ${PWD}/dump_2019_01_15.sql:/dbscript/dump_2019_01_15.sql:ro
       networks:
        - kafka_network
+      healtcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "confluent", "-pconfluent"]
+        timeout: 20s
+        retries: 10
     elasticsearch:
       image: elastic/elasticsearch:6.6.0
       hostname: elasticsearch
